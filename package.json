@@ -1,0 +1,14 @@
+{
+  "name": "bampikey",
+  "version": "1.0.0",
+  "description": "Makes call to 'Spring MVC' page and gets the BAMPI value",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Pierce",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
