@@ -7,7 +7,7 @@ const cheerio = require('cheerio');
 
 var getBampiKey = function getBampiKey() {
 
-  return new Promise(function resolve, reject) {
+  return new Promise(function(resolve, reject) {
     request('http://was1t7:12000/PassCode/BAMPIPassCode/passcode.htm', function(error, response, body) {
       // console.log('error: ', error);
       // console.log('statusCode: ', response && response.statusCode);
@@ -21,13 +21,12 @@ var getBampiKey = function getBampiKey() {
       const beg = text.indexOf('[', pc) + 1;
       const end = text.indexOf(']', pc);
       const code = text.substring(beg, end);
-      
-      // console.log(code);
+
       resolve(code);
     });
   });
 }
 
 getBampiKey().then(function(result) {
-  console.log(code);
+  console.log(result);
 });
