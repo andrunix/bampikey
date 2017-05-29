@@ -1,4 +1,4 @@
-const memberservicekeys = require('memberservicekeys');
+const memberservicekeys = require('./memberservicekeys');
 
 
 memberservicekeys.getBampiKey().then(function(result) {
