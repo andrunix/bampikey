@@ -1,25 +1,33 @@
 
 
-var request = require('request');
+const request = require('request');
 const cheerio = require('cheerio');
 
 // http://was1t7:12000/PassCode/BAMPIPassCode/passcode.htm
 
-request('http://was1t7:12000/PassCode/BAMPIPassCode/passcode.htm', function(error, response, body) {
-  // console.log('error: ', error);
-  // console.log('statusCode: ', response && response.statusCode);
-  // console.log('body: ', body);
+var getBampiKey = function getBampiKey() {
 
-  // now parse that body and get the BAMPI key
-  const $ = cheerio.load(body);
+  return new Promise(function resolve, reject) {
+    request('http://was1t7:12000/PassCode/BAMPIPassCode/passcode.htm', function(error, response, body) {
+      // console.log('error: ', error);
+      // console.log('statusCode: ', response && response.statusCode);
+      // console.log('body: ', body);
 
-  var text = $('b').first().parent().text();
-  var pc = text.indexOf('PassCode');
-  var beg = text.indexOf('[', pc) + 1;
-  var end = text.indexOf(']', pc);
-  var code = text.substring(beg, end);
-  
+      // now parse that body and get the BAMPI key
+      const $ = cheerio.load(body);
 
+      const text = $('b').first().parent().text();
+      const pc = text.indexOf('PassCode');
+      const beg = text.indexOf('[', pc) + 1;
+      const end = text.indexOf(']', pc);
+      const code = text.substring(beg, end);
+      
+      // console.log(code);
+      resolve(code);
+    });
+  });
+}
 
+getBampiKey().then(function(result) {
   console.log(code);
 });
