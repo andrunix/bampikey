@@ -19,6 +19,14 @@ clipboard for you!
 
 BOOM!
 
+## Installation
+
+```
+$ git clone https://github.com/andrunix/bampikey.git
+
+$ npm install
+```
+
 ## TODO:
 
 - [ ] Make a Windows bampikey.cmd for people who are scared of Bash
