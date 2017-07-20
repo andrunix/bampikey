@@ -18,7 +18,7 @@ var getBampiKey = function getBampiKey() {
       const pc = text.indexOf('PassCode');
       const beg = text.indexOf('[', pc) + 1;
       const end = text.indexOf(']', pc);
-      const code = text.substring(beg, end);
+      const code = text.substring(beg, end).replace("\n", "").replace("\r", "");
 
       resolve(code);
     });
